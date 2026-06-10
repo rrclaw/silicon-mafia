@@ -155,7 +155,9 @@ function enterGame(resume = false) {
   Voice.setMode($("lb-voice").value);
   chatCursor = 0; playedBubbles = 0; actionSig = "";
   skipReplay = resume;
+  announcedDead = new Set(); gameOverShown = false;
   $("log").innerHTML = "";
+  $("seats").innerHTML = "";
   poll();
   POLL = setInterval(poll, 1200);
 }
@@ -208,6 +210,10 @@ function seatPos(i, n) {
   return { x: 50 + 41 * Math.cos(a), y: 56 + 36 * Math.sin(a) };
 }
 
+// 死亡/翻牌的"视觉生效"以播报台词为准,防止座位状态跑在配音队列前面剧透
+let announcedDead = new Set();
+let gameOverShown = false;
+
 function renderSeats(st) {
   const wrap = $("seats");
   const n = st.players.length;
@@ -222,13 +228,14 @@ function renderSeats(st) {
       el.style.top = pos.y + "%";
       wrap.appendChild(el);
     }
+    const visuallyDead = !p.alive && announcedDead.has(p.seat);
     const sprite = p.is_human ? "human" : p.persona_id;
-    const frame = p.alive ? "idle" : "dead";
-    const roleBadge = p.role && (!p.alive || st.winner || p.is_human)
+    const frame = visuallyDead ? "dead" : "idle";
+    const roleBadge = p.role && (visuallyDead || gameOverShown || p.is_human)
       ? `<div class="srole ${p.role === "mafia" ? "" : "good"}">${ROLE_EMOJI[p.role] || ""}${p.role}</div>` : "";
     el.innerHTML = `<img id="img-${p.seat}" src="/static/sprites/${sprite}_${frame}.png" alt="${p.name}">
       <div class="sname">${p.is_human ? "★ " : ""}${p.name}</div>${roleBadge}`;
-    el.classList.toggle("dead", !p.alive);
+    el.classList.toggle("dead", visuallyDead);
     el.classList.toggle("me", !!p.is_human);
     el.classList.toggle("on-trial",
       (st.defendants || []).includes(p.seat) && ["trial", "verdict"].includes(st.phase));
@@ -256,6 +263,9 @@ function playNewChat(st) {
       if (c.kind === "narration") $("narrator-text").textContent = main;
     }
     chatCursor = st.chat.length;
+    // 历史里已宣布的死亡直接生效
+    for (const p of st.players) if (!p.alive) announcedDead.add(p.seat);
+    renderSeats(st);
     return;
   }
   const lines = st.chat.slice(chatCursor);
@@ -283,7 +293,13 @@ function enqueueLine(st, c) {
     if (c.kind === "narration") typewriter($("narrator-text"), main);
     if (c.seat !== null && ["speech", "defense", "vote"].includes(c.kind)) showBubble(c.seat, main, sub);
     if (c.kind === "vote" && c.seat !== null && c.target != null) flyChip(c.seat, c.target);
-    if (c.kind === "reveal" && c.seat === null) flashReveal(st, main);
+    // 死讯/翻牌播报到这一行,死亡才在桌面上生效(置灰/翻牌动画)
+    if (["narration", "reveal"].includes(c.kind) && c.target != null && !announcedDead.has(c.target)) {
+      announcedDead.add(c.target);
+      if (lastState) renderSeats(lastState);
+      const el = document.getElementById("seat-" + c.target);
+      if (el) { el.classList.add("flip"); setTimeout(() => el.classList.remove("flip"), 900); }
+    }
   });
 }
 
@@ -339,15 +355,6 @@ function typewriter(el, text) {
     el.textContent = text.slice(0, i += step);
     if (i >= text.length) clearInterval(t);
   }, 28);
-}
-
-function flashReveal(st, text) {
-  // shake the most recently revealed dead seat
-  const dead = st.players.filter(p => !p.alive && p.role);
-  if (dead.length) {
-    const el = document.getElementById("seat-" + dead[dead.length - 1].seat);
-    if (el) { el.classList.add("flip"); setTimeout(() => el.classList.remove("flip"), 900); }
-  }
 }
 
 // ---------- action panel ----------
@@ -464,8 +471,12 @@ function flyChip(fromSeat, toSeat) {
 // ---------- game over ----------
 
 function renderGameOver(st) {
-  if (!$("gameover").classList.contains("hidden")) return;
-  // delay until the voice/log queue likely drained
+  if (gameOverShown || !$("gameover").classList.contains("hidden")) return;
+  // 等台词队列播完再揭幕(终局播报念完才翻全桌底牌)
+  if (document.querySelectorAll("#log .line").length < st.chat.length) return;
+  gameOverShown = true;
+  for (const p of st.players) if (!p.alive) announcedDead.add(p.seat);
+  renderSeats(st);
   setTimeout(() => {
     $("gameover").classList.remove("hidden");
     $("go-title").textContent = st.winner === "mafia" ? "THE MAFIA WINS" : "TOWN WINS";
@@ -474,7 +485,7 @@ function renderGameOver(st) {
     ).join("");
     clearInterval(POLL);
     localStorage.removeItem("mafia_game_id");
-  }, 4000);
+  }, 1500);
 }
 
 initLobby();

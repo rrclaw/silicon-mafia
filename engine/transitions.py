@@ -55,9 +55,10 @@ def new_game(roster: list[dict], human_name: str, lang: str = "bilingual",
     return state
 
 
-def _say(state: GameState, seat: Optional[int], kind: str, en: str, zh: str = "") -> None:
+def _say(state: GameState, seat: Optional[int], kind: str, en: str, zh: str = "",
+         target: Optional[int] = None) -> None:
     state.chat.append(ChatLine(seat=seat, kind=kind, text_en=en, text_zh=zh or en,
-                               day=state.day, phase=state.phase.value))
+                               day=state.day, phase=state.phase.value, target=target))
 
 
 # ---------- night ----------
@@ -132,7 +133,8 @@ def resolve_night(state: GameState, dawn_en: str = "", dawn_zh: str = "",
             nm = state.players[death].name
             dawn_en = f"{nm} was found dead this morning. Who did it?"
             dawn_zh = f"今早发现 {nm} 死了。是谁干的？"
-    _say(state, None, "narration", dawn_en, dawn_zh)
+    # target=死者: 前端以此行播报为准再把座位置灰(防剧透)
+    _say(state, None, "narration", dawn_en, dawn_zh, target=death)
     for g in (ghost_lines or []):
         seat = g.get("seat")
         if seat is not None and not state.players[seat].alive:
@@ -272,9 +274,9 @@ def resolve_verdict(state: GameState, death_en: str = "", death_zh: str = "") ->
     if not death_en:
         death_en = f"{p.name} is dead. The card flips: {p.name} was... {role_en.upper()}."
         death_zh = f"{p.name} 死了。翻牌：{p.name} 的身份是——{role_zh}。"
-    _say(state, None, "narration", death_en, death_zh)
+    _say(state, None, "narration", death_en, death_zh, target=executed)
     _say(state, None, "reveal",
-         f"{p.name} was {role_en}.", f"{p.name} 是{role_zh}。")
+         f"{p.name} was {role_en}.", f"{p.name} 是{role_zh}。", target=executed)
     if _check_win(state):
         return
     start_night(state)
