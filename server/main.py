@@ -199,6 +199,7 @@ class NewGameReq(BaseModel):
     waves: int = 2
     seed: Optional[int] = None
     role: Optional[str] = None            # force human role (debug/practice)
+    demo: bool = False                    # 导演模式: data/demo/<demo>.json 剧本驱动
 
 
 class TextReq(BaseModel):
@@ -255,6 +256,13 @@ async def api_new_game(req: NewGameReq):
     if len(ids) + 1 not in ROLE_DISTRIBUTION:
         raise HTTPException(400, f"need 8-12 NPCs, got {len(ids)}")
     human_role = Role(req.role) if req.role else None
+    from ai.driver import set_demo
+    if req.demo:
+        import json as _json
+        demo_path = Path(__file__).resolve().parent.parent / "data" / "demo" / "ep06_script.json"
+        set_demo(_json.loads(demo_path.read_text()))
+    else:
+        set_demo(None)
     state = new_game(roster_cards(ids), human_name=req.human_name.strip() or "Player",
                      lang=req.lang, waves_per_day=max(1, min(3, req.waves)),
                      seed=req.seed, human_role=human_role,

@@ -354,19 +354,20 @@ def ai_verdict(state: GameState) -> dict:
         data = call_llm(SYSTEM, prompt, f"verdict_d{state.day}")
     except Exception:
         data = {}
-    got = {}
+    # 保留 LLM/剧本给出的亮票顺序(戏剧性所在), 漏掉的座位补在最后
+    rng = random.Random((state.seed or 0) + state.day * 31)
+    votes, seen = [], set()
     for item in data.get("votes", []) or []:
-        if isinstance(item, dict) and item.get("seat") in seats:
+        if isinstance(item, dict) and item.get("seat") in seats and item["seat"] not in seen:
             tgt = item.get("target")
             if not (isinstance(tgt, int) and tgt in defendants):
                 tgt = None
             en, zh = _get_texts(item)
-            got[item["seat"]] = (tgt, en, zh)
-    rng = random.Random((state.seed or 0) + state.day * 31)
-    votes = []
+            votes.append((item["seat"], tgt, en, zh))
+            seen.add(item["seat"])
     for s in seats:
-        tgt, en, zh = got.get(s, (rng.choice(defendants), "", ""))
-        votes.append((s, tgt, en, zh))
+        if s not in seen:
+            votes.append((s, rng.choice(defendants), "", ""))
     return {"votes": votes, "death_flavor": data.get("execution_flavor") or {}}
 
 

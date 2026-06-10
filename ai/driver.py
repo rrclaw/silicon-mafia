@@ -164,8 +164,25 @@ def get_backend() -> Backend:
     return _BACKEND
 
 
+# ---- 导演模式(demo): 预排剧本替代 LLM,真实引擎照常跑。用于录 trailer/演示 ----
+_DEMO: dict | None = None
+
+
+def set_demo(script: dict | None) -> None:
+    global _DEMO
+    _DEMO = script
+    log.info("demo mode: %s", "ON" if script else "off")
+
+
 def call_llm(system: str, prompt: str, label: str) -> dict:
     """One retried call, JSON extracted, fully logged. Raises on double failure."""
+    if _DEMO is not None:
+        delays = _DEMO.get("_delays", {})
+        time.sleep(next((v for k, v in delays.items() if label.startswith(k)), 2.5))
+        data = _DEMO.get(label, {})
+        _log_call(f"demo_{label}", prompt, json.dumps(data, ensure_ascii=False), 0, ok=True)
+        import copy
+        return copy.deepcopy(data)
     backend = get_backend()
     last_err: Exception | None = None
     for attempt in (1, 2):

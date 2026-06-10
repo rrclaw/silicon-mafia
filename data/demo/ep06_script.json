@@ -1,0 +1,99 @@
+{
+  "_comment": "EP06 导演模式剧本。seed=14 + 全明星 cast + 人类(seat0)=mafia。座位: 0=rr 1=cook 2=ilya 3=gates 4=altman 5=zuck 6=musk 7=dario 8=son 9=pichai 10=jensen 11=bezos。狼=0,5,11; 警长=8(son); 天使=7(dario)。",
+  "_delays": { "night_d1": 4, "wave_": 3, "nom_d1": 3, "trial_d1": 3, "verdict_d1": 9, "night_d2": 4 },
+
+  "night_d1": {
+    "sheriff_check": 6,
+    "angel_save": 4,
+    "narration_dead": {
+      "en": "Everybody wake up. {VICTIM} was found this morning folded into a shipping box. Gift-wrapped. Zero logistical waste. Somebody optimized him right out of the supply chain. Who did it?",
+      "zh": "都醒醒。今早发现{VICTIM}被整整齐齐叠进了一只快递箱,礼品包装,零物流损耗。有人把他从供应链里优化掉了。是谁干的?"
+    },
+    "narration_quiet": {
+      "en": "Everybody wake up. Nobody died. Somebody at this table is very good at their job.",
+      "zh": "都醒醒。没人死。今晚桌上有人活儿干得相当漂亮。"
+    },
+    "ghost_lines": []
+  },
+
+  "wave_d1w0": {
+    "speeches": [
+      { "seat": 2, "text_en": "The vibes are wrong. Someone here optimizes supply chains.", "text_zh": "气场不对。这桌上有人,擅长优化供应链。" },
+      { "seat": 3, "text_en": "I mean, if you look at the data: one night, one kill, zero noise. That's not passion, that's process. Patient zero is sitting at this table.", "text_zh": "我是说,看数据:一夜,一刀,零噪音。这不是冲动作案,这是流程化作业。零号病人就坐在这张桌上。" },
+      { "seat": 4, "text_en": "There's two game-theory versions of last night. Either the mafia killed at random — or someone wanted the calmest voice at this table gone. Watch who speaks with definitive certainty today. That tells us a lot.", "text_zh": "昨晚有两个博弈论版本。要么 mafia 随机杀人,要么有人就是想让这桌最冷静的声音消失。今天注意谁说话最斩钉截铁,那能说明很多问题。" },
+      { "seat": 5, "text_en": "That's a great question. Three points. One: I'm a townsperson. Two: Tim and I had our differences — the man cost me a hundred billion in ads — but this was not me. Three: we should open-source our suspicion lists.", "text_zh": "这是个好问题。我说三点。第一,我是好人。第二,库克和我确实有旧账,那男人砍过我一百亿广告费,但这事不是我干的。第三,我建议把怀疑名单开源。" },
+      { "seat": 6, "text_en": "Concerning. The guy with a hundred-billion-dollar grudge just listed it as point two. Also — Sam's been very quiet over there. You changed the name but not the mission, Sam.", "text_zh": "Concerning。刚才那位把一百亿的旧仇列成了'第二点'。还有,Sam 在那边安静得有点过分了。你改了名字,没改使命,Sam。" }
+    ]
+  },
+
+  "wave_d1w1": {
+    "speeches": [
+      { "seat": 7, "text_en": "I want to be careful here, but my confidence interval on Elon's accusation is... wide. We're scaling accusations faster than evidence.", "text_zh": "我想谨慎一点说:我对 Elon 那个指控的置信区间……很宽。我们指控的扩张速度,已经超过证据了。" },
+      { "seat": 8, "text_en": "I decided in six minutes: it is NOT Sam. Three hundred years from now, historians will agree with me. I am all in on his innocence.", "text_zh": "我用六分钟就做出了判断:绝不是 Sam。三百年后,历史学家会同意我。我全压他无罪。" },
+      { "seat": 9, "text_en": "That's a fair question. Let me add some context: the loudest accusation today came from a man currently suing the accused. Congressman — sorry, force of habit.", "text_zh": "这是个好问题。让我补充一点 context:今天嗓门最大的指控,来自一位正在起诉被指控者的先生。议员先生……抱歉,职业病。" },
+      { "seat": 10, "text_en": "The more you buy, the more you save! Elon cannot be mafia — his order hasn't shipped. Sam cannot be mafia — his order hasn't shipped either. Please stop killing my customers.", "text_zh": "买得越多,省得越多!Elon 不可能是 mafia,他的订单还没交付。Sam 也不可能是 mafia,他的订单也没交付。请大家停止杀害我的客户。" },
+      { "seat": 11, "text_en": "HAHAHA! Adjectives everywhere, data nowhere. One body, eleven suspects, zero voting graphs. Show me the data or sit down. It's still Day 1, people.", "text_zh": "哈哈哈哈!满桌都是形容词,没有一个数据。一具尸体,十一个嫌疑人,零张投票图。拿数据来,不然就坐下。各位,这还只是 Day 1。" }
+    ]
+  },
+
+  "nom_d1": {
+    "nominations": [
+      { "seat": 2, "target": null, "text_en": "I will speak at the vote.", "text_zh": "我投票的时候再开口。" },
+      { "seat": 3, "target": 4, "text_en": "The model says: the calm one. That's just how it works.", "text_zh": "模型的结论是:最冷静的那个。规律就是这样运作的。" },
+      { "seat": 5, "target": 4, "text_en": "Three points, but mainly one: Sam. The voting graph will thank us.", "text_zh": "三点理由,但主要是一点:Sam。投票图会感谢我们的。" },
+      { "seat": 6, "target": 4, "text_en": "Obviously. I nominate Sam. For... statistical reasons.", "text_zh": "Obviously。我提名 Sam。理由是……统计学。" },
+      { "seat": 7, "target": 9, "text_en": "60-40, with regret: Sundar. The apology was too smooth.", "text_zh": "六比四,带着歉意:Sundar。那个道歉太丝滑了。" },
+      { "seat": 8, "target": null, "text_en": "My read is locked. I abstain to protect it.", "text_zh": "我的判断已经锁定。弃权,是为了保护它。" },
+      { "seat": 9, "target": 6, "text_en": "With respect: the man with the lawsuit. Adding context is free.", "text_zh": "恕我直言:那位手里有诉讼的先生。补充 context 不要钱。" },
+      { "seat": 10, "target": 9, "text_en": "Sundar buys the fewest GPUs at this table. Just saying.", "text_zh": "Sundar 是这桌买 GPU 最少的。我就随口一说。" },
+      { "seat": 11, "target": 9, "text_en": "The diplomat's metrics are too clean. Nobody ships zero defects. HAHAHA.", "text_zh": "这位外交官的指标太干净了。没人能做到零缺陷交付。哈哈哈。" }
+    ]
+  },
+
+  "trial_d1": {
+    "defenses": [
+      { "seat": 4, "text_en": "I'm a townsperson. There's two versions of this trial: in one, you execute the guy who's been analyzing the table for you. In the other, the mafia quietly says thank you. All this definitive certainty about my guilt — that feels very mafia, right?", "text_zh": "我是好人。这场审判有两个版本:一个版本里,你们处决了那个一直在帮你们分析牌桌的人;另一个版本里,mafia 在心里默默说了声谢谢。你们对我有罪这件事如此斩钉截铁——这种确定感,很 mafia,对吧?" },
+      { "seat": 9, "text_en": "That's a fair question. Let me step back: I have made zero kills, zero accusations, and exactly one apology. Congressman, the knife was made by a different company.", "text_zh": "这是个好问题。让我退一步说:我至今零击杀、零指控、正好一次道歉。议员先生,那把刀,是另一家公司生产的。" }
+    ]
+  },
+
+  "verdict_d1": {
+    "votes": [
+      { "seat": 5, "target": 4, "text_en": "Three points. One: process. Two: data. Three: sorry, Sam.", "text_zh": "三点。第一,流程。第二,数据。第三,对不起了 Sam。" },
+      { "seat": 8, "target": 9, "text_en": "Six minutes, no regrets. Sam is innocent, so it must be the other one. All in.", "text_zh": "六分钟,绝不后悔。Sam 是无辜的,那就只能是另一位。全压。" },
+      { "seat": 3, "target": 4, "text_en": "The epidemiology points at the calm one. I don't make the rules.", "text_zh": "流行病学指向最冷静的那个。规律不是我定的。" },
+      { "seat": 11, "target": 9, "text_en": "Data's thin on both. Coin flip says the diplomat. HAHAHA.", "text_zh": "两边数据都不够。抛硬币的结果是:外交官。哈哈哈。" },
+      { "seat": 7, "target": 9, "text_en": "I want to be careful here... 60-40. Sundar. I'm sorry.", "text_zh": "我想谨慎一点……六比四。Sundar。对不起。" },
+      { "seat": 10, "target": 9, "text_en": "Sam still owes me a shipment. I protect my receivables.", "text_zh": "Sam 还欠我一批货没收。我要保护我的应收账款。" },
+      { "seat": 2, "target": 4, "text_en": "It was the right thing to do.", "text_zh": "这是正确的事。" },
+      { "seat": 6, "target": 4, "text_en": "History does rhyme, Ilya. ...Fine. You changed the name but not the mission, Sam.", "text_zh": "历史确实会押韵,Ilya。……行吧。你改了名字,没改使命,Sam。" }
+    ],
+    "execution_flavor": {
+      "4": {
+        "en": "Sam Altman has been voted out by the board of this very table — drawn, quartered, and deprecated. And if it's any consolation, Sam: this proves, once and for all, you are not a superintelligent AI.",
+        "zh": "Sam Altman 被这张桌子的'董事会'投票罢免了——五马分尸,版本弃用。Sam,如果这能算安慰的话:这至少一劳永逸地证明了,你不是一个超级智能 AI。"
+      },
+      "9": {
+        "en": "Sundar Pichai was buried under ten blue links. Nobody clicked page two.",
+        "zh": "Sundar Pichai 被埋在了十条蓝色链接下面。没有人点开第二页。"
+      }
+    }
+  },
+
+  "night_d2": {
+    "sheriff_check": 3,
+    "angel_save": 8,
+    "narration_dead": {
+      "en": "Everybody wake up. {VICTIM} is gone. The table is running out of townspeople and excuses.",
+      "zh": "都醒醒。{VICTIM}没了。这张桌子的好人和借口,都快用完了。"
+    },
+    "narration_quiet": {
+      "en": "Everybody wake up. A quiet night. Suspiciously quiet.",
+      "zh": "都醒醒。安静的一夜。安静得可疑。"
+    },
+    "ghost_lines": [
+      { "seat": 1, "en": "Thank you all for the feedback. The packaging was, I admit, beautifully done.", "zh": "感谢大家的反馈。那个包装,我承认,做得确实精美。" },
+      { "seat": 4, "en": "For the record: I called the certainty thing. Posthumously, but I called it.", "zh": "郑重声明:'确定性=mafia'是我说的。虽然是死后验证的,但确实是我说的。" }
+    ]
+  }
+}

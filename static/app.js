@@ -47,7 +47,7 @@ async function initLobby() {
   $("bt-ep001").onclick = () => { selected = new Set(pickEleven(META.ep001)); renderSel(); };
   $("bt-allstar").onclick = () => {
     const stars = ["musk", "altman", "zuck", "gates", "bezos", "cook", "pichai",
-                   "jensen", "dario", "ilya", "thiel"];
+                   "jensen", "son", "dario", "ilya"];
     selected = new Set(stars.filter(id => META.roster.some(c => c.id === id)).slice(0, 11));
     renderSel();
   };
@@ -119,9 +119,11 @@ async function startGame() {
     human_name: $("lb-name").value.trim() || "rr",
     lang, waves: parseInt($("lb-waves").value, 10),
   };
-  // 练习模式: /?role=mafia|sheriff|angel|town 强制指定自己的身份
-  const forcedRole = new URLSearchParams(location.search).get("role");
-  if (forcedRole) body.role = forcedRole;
+  // 练习/导演模式: /?role=mafia 强制身份 &seed=N 固定发牌 &demo=1 剧本驱动(录demo用)
+  const qs = new URLSearchParams(location.search);
+  if (qs.get("role")) body.role = qs.get("role");
+  if (qs.get("seed")) body.seed = parseInt(qs.get("seed"), 10);
+  if (qs.get("demo")) body.demo = true;
   const r = await fetch(API + "/api/game/new", {
     method: "POST", headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
