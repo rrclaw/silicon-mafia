@@ -119,6 +119,9 @@ async function startGame() {
     human_name: $("lb-name").value.trim() || "rr",
     lang, waves: parseInt($("lb-waves").value, 10),
   };
+  // 练习模式: /?role=mafia|sheriff|angel|town 强制指定自己的身份
+  const forcedRole = new URLSearchParams(location.search).get("role");
+  if (forcedRole) body.role = forcedRole;
   const r = await fetch(API + "/api/game/new", {
     method: "POST", headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
