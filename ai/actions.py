@@ -275,6 +275,7 @@ def ai_nominations(state: GameState) -> list[tuple[int, int | None, str, str]]:
               + "\n".join(_private_line(state, s) for s in seats)
               + f"\n\n== 任务 ==\n提名审判: {_seat_names(state, seats)} 各提名一个想送上审判席的人"
               f"(可选 seat: {alive}, 不能提名自己, target=null 表示弃权)，配一句话理由。"
+              "理由必须指向本局具体发言或行为(援引谁说过什么), 不要空泛直觉。"
               f"\n{_lang_note(state)}\n"
               f'只输出 JSON: {{"nominations": [{{"seat": <int>, "target": <int|null>, '
               f'{LANG_FIELDS[state.lang]}}}]}}')
@@ -343,7 +344,9 @@ def ai_verdict(state: GameState) -> dict:
               + "\n".join(_private_line(state, s) for s in seats)
               + f"\n\n== 任务 ==\n公开亮票。被审判者: {dnames}。"
               f"{_seat_names(state, seats)} 各投一票(target 必须是 {defendants} 之一, null=弃权)"
-              "配一句话理由(节目精华格式, 要有人味)。mafia 投票时记得演好人。"
+              "配一句话理由(节目精华格式, 要有人味)。理由必须援引本局的具体事实——"
+              "谁在哪天说了什么、谁的投票/行为反常、夜里发生了什么——禁止'直觉''感觉不对'这类空理由。"
+              "mafia 投票时记得演好人。亮票顺序自己编排, 把最有戏剧性的票放最后。"
               "\n另外: 以 Solana 腔调为每位被审判者各写一句'若 TA 被处决'的定制死法播报"
               "(死法必须贴合该死者本人的公司/人设, 节目定制死法传统)。"
               f"\n{_lang_note(state)}\n"

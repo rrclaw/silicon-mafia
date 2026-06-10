@@ -240,7 +240,8 @@ def submit_verdict_vote(state: GameState, seat: int, target: Optional[int],
         who = state.players[target].name if target is not None else "abstain"
         en = f"votes {who}" + (f" — {reason_en}" if reason_en else "")
         zh = f"投 {who}" + (f"：{reason_zh}" if reason_zh else "")
-        _say(state, seat, "vote", en, zh)
+        state.chat.append(ChatLine(seat=seat, kind="vote", text_en=en, text_zh=zh or en,
+                                   day=state.day, phase=state.phase.value, target=target))
 
 
 def verdict_pending(state: GameState) -> list[int]:
@@ -371,7 +372,7 @@ def visible_state(state: GameState, viewer: int = 0) -> dict:
         "defendants": list(day.defendants) if day else [],
         "chat": [
             {"seat": c.seat, "kind": c.kind, "en": c.text_en, "zh": c.text_zh,
-             "day": c.day, "phase": c.phase}
+             "day": c.day, "phase": c.phase, "target": c.target}
             for c in state.chat
         ],
     }

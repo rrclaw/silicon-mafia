@@ -38,6 +38,7 @@ class ChatLine:
     text_zh: str = ""
     day: int = 0
     phase: str = ""
+    target: Optional[int] = None   # vote 行: 被投者座位(前端筹码动画用)
 
 
 @dataclass

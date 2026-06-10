@@ -276,12 +276,13 @@ function enqueueLine(st, c) {
   const personaId = c.seat === null ? "solana"
     : (st.players.find(x => x.seat === c.seat) || {}).persona_id || "human";
   const voiceText = lang === "zh" ? (c.zh || c.en) : c.en;
-  const speakable = ["speech", "defense", "narration", "ghost"].includes(c.kind);
+  const speakable = ["speech", "defense", "narration", "ghost", "vote"].includes(c.kind);
 
   Voice.say(speakable ? voiceText : "", personaId, lang, () => {
     addLogLine(c, who, main, sub);
     if (c.kind === "narration") typewriter($("narrator-text"), main);
-    if (c.seat !== null && ["speech", "defense"].includes(c.kind)) showBubble(c.seat, main, sub);
+    if (c.seat !== null && ["speech", "defense", "vote"].includes(c.kind)) showBubble(c.seat, main, sub);
+    if (c.kind === "vote" && c.seat !== null && c.target != null) flyChip(c.seat, c.target);
     if (c.kind === "reveal" && c.seat === null) flashReveal(st, main);
   });
 }
@@ -425,7 +426,7 @@ function renderAction(st) {
     mkInput("生死陈词……", t => act("defense", { text: t }));
   } else if (pd.type === "verdict") {
     mkLabel("🗳️ 公开投票，处决谁？");
-    mkTargets(pd.targets, s => { flyChip(0, s); act("vote", { target: s }); });
+    mkTargets(pd.targets, s => act("vote", { target: s }));
     const ab = document.createElement("button");
     ab.className = "px-btn ghost-btn"; ab.textContent = "弃权";
     ab.onclick = () => act("vote", { target: null });
