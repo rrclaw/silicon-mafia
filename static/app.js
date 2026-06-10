@@ -76,7 +76,7 @@ async function initLobby() {
   if (GAME_ID) {
     try {
       const r = await fetch(`${API}/api/game/${GAME_ID}`);
-      if (r.ok) { enterGame(); return; }
+      if (r.ok) { enterGame(true); return; }   // resume: 历史台词静默加载
     } catch (e) { /* fall through */ }
     localStorage.removeItem("mafia_game_id");
     GAME_ID = null;
@@ -147,12 +147,14 @@ async function startGame(overrides = {}) {
   enterGame();
 }
 
-function enterGame() {
+let skipReplay = false;
+function enterGame(resume = false) {
   $("lobby").classList.add("hidden");
   $("game").classList.remove("hidden");
   lang = $("lb-lang").value;
   Voice.setMode($("lb-voice").value);
   chatCursor = 0; playedBubbles = 0; actionSig = "";
+  skipReplay = resume;
   $("log").innerHTML = "";
   poll();
   POLL = setInterval(poll, 1200);
@@ -245,6 +247,17 @@ function renderPhase(st) {
 }
 
 function playNewChat(st) {
+  if (skipReplay) {     // 恢复旧局: 历史台词直接铺进日志,不进配音/打字机队列
+    skipReplay = false;
+    for (const c of st.chat.slice(chatCursor)) {
+      const main = lang === "zh" ? (c.zh || c.en) : c.en;
+      const sub = lang === "bilingual" && c.zh && c.zh !== c.en ? c.zh : "";
+      addLogLine(c, nameOf(st, c.seat), main, sub);
+      if (c.kind === "narration") $("narrator-text").textContent = main;
+    }
+    chatCursor = st.chat.length;
+    return;
+  }
   const lines = st.chat.slice(chatCursor);
   chatCursor = st.chat.length;
   for (const c of lines) enqueueLine(st, c);
