@@ -23,8 +23,14 @@ const PHASE_ZH = {
 
 // ---------- lobby ----------
 
+const QS = new URLSearchParams(location.search);
+
 async function initLobby() {
   META = await (await fetch(API + "/api/meta")).json();
+  if (QS.get("demo")) {            // 导演模式永远从全新一局开始(方便重录)
+    localStorage.removeItem("mafia_game_id");
+    GAME_ID = null;
+  }
   Voice.setProfiles(META.roster);
   $("lb-backend").textContent = `引擎后端: ${META.backend}`;
   const grid = $("cast-grid");
@@ -56,7 +62,13 @@ async function initLobby() {
     selected = new Set(ids.slice(0, 11)); renderSel();
   };
   $("bt-clear").onclick = () => { selected = new Set(); renderSel(); };
-  $("bt-start").onclick = startGame;
+  $("bt-start").onclick = () => startGame();
+  $("bt-demo").onclick = () => {        // 🎬 一键演示局: 自动选全明星+开局+自动驾驶
+    $("bt-allstar").click();
+    demoAuto = true;
+    localStorage.removeItem("mafia_game_id");
+    setTimeout(() => startGame({ demo: true, seed: 14, role: "mafia" }), 900);
+  };
   $("bt-again").onclick = () => { localStorage.removeItem("mafia_game_id"); location.reload(); };
   selected = new Set(pickEleven(META.ep001));
   renderSel();
@@ -111,19 +123,20 @@ function renderSel() {
   $("bt-start").disabled = selected.size !== 11;
 }
 
-async function startGame() {
+async function startGame(overrides = {}) {
   lang = $("lb-lang").value;
   Voice.setMode($("lb-voice").value);
   const body = {
     cast: [...selected],
     human_name: $("lb-name").value.trim() || "rr",
     lang, waves: parseInt($("lb-waves").value, 10),
+    ...overrides,
   };
-  // 练习/导演模式: /?role=mafia 强制身份 &seed=N 固定发牌 &demo=1 剧本驱动(录demo用)
-  const qs = new URLSearchParams(location.search);
-  if (qs.get("role")) body.role = qs.get("role");
-  if (qs.get("seed")) body.seed = parseInt(qs.get("seed"), 10);
-  if (qs.get("demo")) body.demo = true;
+  // 练习/导演模式: /?role=mafia 强制身份 &seed=N 固定发牌 &demo=1 剧本驱动 &auto=1 自动驾驶
+  if (QS.get("role") && !body.role) body.role = QS.get("role");
+  if (QS.get("seed") && body.seed == null) body.seed = parseInt(QS.get("seed"), 10);
+  if (QS.get("demo")) body.demo = true;
+  if (QS.get("auto") && QS.get("demo")) demoAuto = true;
   const r = await fetch(API + "/api/game/new", {
     method: "POST", headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
@@ -159,7 +172,32 @@ async function poll() {
   renderPhase(st);
   playNewChat(st);
   renderAction(st);
+  autopilot(st);
   if (st.winner) renderGameOver(st);
+}
+
+// ---------- 导演模式自动驾驶(🎬 演示局按钮 或 ?demo=1&auto=1):人类位动作按剧本自动执行 ----------
+let autoSig = "";
+let demoAuto = false;
+function autopilot(st) {
+  if (!demoAuto || st.winner || !st.pending) return;
+  const pd = st.pending;
+  const sig = [st.phase, pd.type, st.day, st.wave].join("|");
+  if (sig === autoSig) return;
+  const seatOf = (pid) => (st.players.find(p => p.persona_id === pid) || {}).seat;
+  const doAct = (fn) => { autoSig = sig; setTimeout(fn, 2600); };
+  if (pd.type === "kill" && st.day === 1) {
+    doAct(() => act("night", { action: "kill", target: seatOf("cook") }));
+  } else if (pd.type === "nominate") {
+    doAct(() => act("nominate", { target: seatOf("altman") }));
+  } else if (pd.type === "verdict") {
+    doAct(() => act("vote", { target: seatOf("altman") }));
+  } else if (pd.type === "speak_or_end" && st.wave >= st.waves_per_day && !(st.server || {}).ai_busy) {
+    // 等台词队列在客户端播完再收讨论(否则字幕被截断)
+    if (document.querySelectorAll("#log .line").length < st.chat.length) return;
+    doAct(() => act("end_discussion", {}));
+  }
+  // day>=2 的夜晚不再操作:画面停在"入夜",录屏在此收尾
 }
 
 function seatPos(i, n) {

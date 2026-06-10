@@ -150,8 +150,11 @@ const Voice = (() => {
     const profile = PROFILES[personaId] || { pitch: 1.0, rate: 1.0 };
     if (onstart) onstart();
     const done = () => { playing = false; pump(); };
-    if (mode === "off" || !text) { setTimeout(done, 200); return; }
-    if (mode === "beep") return speakBeep(text, profile, done);
+    if (!text) { setTimeout(done, 200); return; }
+    // 静音/哔哔档按文字长度停留,保证字幕读得完(打字机节奏)
+    const dwell = Math.min(9000, 600 + text.length * 60);
+    if (mode === "off") { setTimeout(done, dwell); return; }
+    if (mode === "beep") { speakBeep(text, profile, () => {}); setTimeout(done, dwell); return; }
     speakTTS(text, personaId, profile, lang, done);
   }
 
