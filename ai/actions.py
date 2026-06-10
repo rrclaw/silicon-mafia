@@ -344,12 +344,12 @@ def ai_verdict(state: GameState) -> dict:
               + f"\n\n== 任务 ==\n公开亮票。被审判者: {dnames}。"
               f"{_seat_names(state, seats)} 各投一票(target 必须是 {defendants} 之一, null=弃权)"
               "配一句话理由(节目精华格式, 要有人味)。mafia 投票时记得演好人。"
-              "\n另外: 以 Solana 腔调为'若有人被处决'写一句定制死法播报 execution_flavor"
-              "(用 {VICTIM} 占位名字, 死法贴合两位被审判者的公司/人设, 二选一通用即可)。"
+              "\n另外: 以 Solana 腔调为每位被审判者各写一句'若 TA 被处决'的定制死法播报"
+              "(死法必须贴合该死者本人的公司/人设, 节目定制死法传统)。"
               f"\n{_lang_note(state)}\n"
               f'只输出 JSON: {{"votes": [{{"seat": <int>, "target": <int|null>, '
               f'{LANG_FIELDS[state.lang]}}}], '
-              f'"execution_flavor": {{"en": "...", "zh": "..."}}}}')
+              f'"execution_flavor": {{"<defendant_seat>": {{"en": "...", "zh": "..."}}, ...}}}}')
     try:
         data = call_llm(SYSTEM, prompt, f"verdict_d{state.day}")
     except Exception:
@@ -374,8 +374,12 @@ def execution_narration(flavor: dict, state: GameState, executed: int) -> tuple[
     p = state.players[executed]
     role_en = ROLE_LABELS[p.role]["en"]
     role_zh = ROLE_LABELS[p.role]["zh"]
-    en = (flavor.get("en") or "").replace("{VICTIM}", p.name)
-    zh = (flavor.get("zh") or "").replace("{VICTIM}", p.name)
+    # flavor 可能是 {seat: {en,zh}}(新) 或 {en,zh}(旧/降级)
+    item = flavor.get(str(executed)) or flavor.get(executed) or flavor
+    if not isinstance(item, dict):
+        item = {}
+    en = (item.get("en") or "").replace("{VICTIM}", p.name)
+    zh = (item.get("zh") or "").replace("{VICTIM}", p.name)
     if en:
         en += f" The card flips: {p.name} was {role_en.upper()}."
         zh += f" 翻牌：{p.name} 的身份是——{role_zh}。"
