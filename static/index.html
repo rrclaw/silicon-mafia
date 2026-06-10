@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>MAFIA @ Tosca Café — 我和硅谷大佬玩狼人杀</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="night">
+
+<!-- ===== LOBBY ===== -->
+<div id="lobby" class="screen">
+  <div class="marquee">
+    <div class="neon">MAFIA</div>
+    <div class="sub">@ TOSCA CAFÉ · 我和硅谷大佬玩狼人杀</div>
+  </div>
+  <div class="lobby-grid">
+    <div class="panel">
+      <h3>组局</h3>
+      <label>你的名字 <input id="lb-name" maxlength="12" placeholder="rr"></label>
+      <label>语言
+        <select id="lb-lang">
+          <option value="bilingual">双语（英文原声 + 中文字幕）</option>
+          <option value="zh">纯中文</option>
+          <option value="en">English only</option>
+        </select>
+      </label>
+      <label>讨论节奏
+        <select id="lb-waves">
+          <option value="2">标准（每天 2 轮发言）</option>
+          <option value="1">快速（每天 1 轮）</option>
+          <option value="3">马拉松（每天 3 轮）</option>
+        </select>
+      </label>
+      <label>配音
+        <select id="lb-voice">
+          <option value="tts">浏览器 TTS（每人不同声线）</option>
+          <option value="beep">像素哔哔声</option>
+          <option value="off">静音</option>
+        </select>
+      </label>
+      <div class="preset-row">
+        <button id="bt-ep001" class="px-btn">EP001 原班</button>
+        <button id="bt-random" class="px-btn">随机组局</button>
+        <button id="bt-clear" class="px-btn ghost-btn">清空</button>
+      </div>
+      <div id="lb-count" class="count">已选 0 / 11</div>
+      <button id="bt-start" class="px-btn primary" disabled>开局 · LET'S GO KILL SOME PEOPLE</button>
+      <div id="lb-backend" class="hint"></div>
+    </div>
+    <div class="panel">
+      <h3>选 11 位大佬同桌</h3>
+      <div id="cast-grid" class="cast-grid"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== GAME ===== -->
+<div id="game" class="screen hidden">
+  <div id="narrator" class="narrator">
+    <img src="/static/sprites/solana_idle.png" class="solana-avatar" alt="Solana">
+    <div>
+      <div class="narrator-name">MIKE SOLANA <span class="tag">narrator</span></div>
+      <div id="narrator-text" class="narrator-text">…</div>
+    </div>
+    <div id="phase-badge" class="phase-badge">NIGHT 1</div>
+  </div>
+
+  <div id="table-wrap">
+    <div id="table-scene">
+      <div id="cafe-sign">TOSCA CAFÉ</div>
+      <div id="table-oval"></div>
+      <div id="seats"></div>
+      <div id="moon">☾</div>
+    </div>
+    <div id="log-panel">
+      <div id="log"></div>
+    </div>
+  </div>
+
+  <div id="action-bar">
+    <div id="rolecard" class="rolecard"></div>
+    <div id="action-area"></div>
+    <div id="ai-step" class="ai-step hidden"><span class="spinner"></span><span id="ai-step-text"></span></div>
+  </div>
+
+  <div id="gameover" class="overlay hidden">
+    <div class="overlay-card">
+      <div id="go-title" class="go-title"></div>
+      <div id="go-roles"></div>
+      <button id="bt-again" class="px-btn primary">再来一局</button>
+    </div>
+  </div>
+</div>
+
+<script src="/static/audio.js"></script>
+<script src="/static/app.js"></script>
+</body>
+</html>

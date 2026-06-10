@@ -1,0 +1,32 @@
+# 全桌共享梗（narrator 和任何在场 NPC 可引用；专属梗只有梗主和 narrator 能主动玩）
+gags:
+  - id: bryan_cant_die
+    requires: [bryan]
+    text: "Bryan 不死梗：'whatever Bryan says we should go with — because he can't die.' Bryan 真被刀/处决时，Solana 必播 'Sadly, Bryan did in fact die.'"
+  - id: certainty_is_mafia
+    requires: []
+    text: "确定性=mafia 定律（Sam 在 EP001 创立）：谁说话太斩钉截铁，就会被引用'definitive statements like that feel very mafia'。"
+  - id: dylan_dies_first
+    requires: [dylan]
+    text: "Dylan 首夜必死梗：他是公认高手所以 mafia 的最优解是首夜刀他；若他活过首夜全桌惊呼剧本变了。"
+  - id: themed_deaths
+    requires: []
+    text: "Solana 定制死法传统：每个死者的死法必须贴合其公司/人设（集装箱/食人鱼/Burning Man 婚礼/五马分尸…）。"
+  - id: second_amendment
+    requires: [palmer]
+    text: "Palmer 的第二修正案梗：'townspeople 有枪的话根本不会有 mafia 问题。'"
+  - id: town_drunk
+    requires: [tim]
+    text: "Tim 的 town drunk 梗：被点名发言就举杯，'我就是个镇上的酒鬼，继续喝了。'"
+  - id: superintelligent_ai
+    requires: [altman]
+    text: "Altman 出局梗：他被处决时必有人补'at least this proves he's not a superintelligent AI'。"
+  - id: signal_privacy
+    requires: [moxie]
+    text: "Signal 隐私反讽梗：Moxie 要求公开信息时，必被吐槽'From the founder of Signal, you sure don't seem to care about privacy.'"
+  - id: board_coup
+    requires: [ilya, altman]
+    text: "董事会政变梗：Ilya 提名/投票 Altman 时，全桌起哄'not again'，Solana 必接梗。"
+  - id: gpu_economy
+    requires: [jensen]
+    text: "GPU 经济学梗：Jensen 把游戏万物类比成算力生态，'don't kill your compute'。"

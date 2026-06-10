@@ -1,0 +1,147 @@
+game_events:
+  - "Cold open at Tosca Café bar: cast hypes the game; Liv introduced as 'former professional poker player' and 'odds on favorite'; banter that Mafia rewards lying ('people are very good liars', 'there's no ethics', 'a game you are incentivized to not trust')."
+  - "Mike Solana takes over as narrator, deals 12 cards and explains roles: 3 jacks = mafia, 1 ace = angel, 1 king = sheriff, the rest townspeople. Players reminded they can lie about any role."
+  - "NIGHT 1: Mafia kill Dylan Field. Solana: 'Dylan was found in his basement riddled with bullets.'"
+  - "DAY 1: Players probe reactions. Moxie certainly accuses Josie (claims he watched her glance at a notes sheet and heard movement near her). Sam flags definitive/certain speech as 'very mafia.' Bryan presses the quiet Cyan for information. The 'Bryan can't die' gag is established."
+  - "TRIAL 1 (Josie vs Ryan Beiermeister): Josie voted out, unanimous (~5 hands). On her way out she reveals she was MAFIA ('Oh, cuz I was mafia')."
+  - "NIGHT 2: Angel (Moxie) saves Ryan Beiermeister, nullifying the mafia kill. Solana: 'It was a quiet night.' Nobody dies."
+  - "DAY 2: Sam game-theories that the mafia would target whoever was onto them (the accuser). Sam and Ryan Beiermeister trade 'if I get killed, suspect this person' accusations. Palmer targeted as a 'wild card.'"
+  - "TRIAL 2 (Palmer vs Moxie): On the stand Moxie reveals he is the ANGEL ('I am the angel. Last night I saved Ryan'). Town nonetheless votes out Palmer — a townsperson (a mistake). Death themed to Shirley Jackson's 'The Lottery' (stoning), sparking an 'is that an old-person thing' argument."
+  - "NIGHT 3: Mafia kill Ryan Petersen. Solana: 'The various pieces of Ryan Peterson were found in five separate shipping containers' (Flexport gag)."
+  - "DAY 3: Cyan's quietness draws suspicion; Trae tells his 'I've never been mafia in 100 games' story. TRIAL 3 (Cyan vs Sam): town votes out Sam — a townsperson. As he leaves Sam correctly fingers the mafia: 'now I think Cyan is probably mafia... possibly Trey.' Solana: 'Not a super-intelligent AI, that's a win in my book.'"
+  - "NIGHT 4: Mafia kill Liv. Solana: 'Liv's charred remains were discovered at the site of her burning man wedding.'"
+  - "DAY 4: Moxie defends his angel survival by explaining the save-rules (can't save same person twice running, can sometimes save self). TRIAL 4 (Cyan vs Bryan): town votes out Cyan (cement boots, town lake) — she was an innocent townsperson, so the game continues ('the game is continuing, dammit')."
+  - "NIGHT 5: Mafia finally kill Bryan Johnson, subverting the can't-die gag. Solana: 'Sadly, Ryan Johnson did in fact die.'"
+  - "FINAL 4 (Moxie, Trae, Tim, Ryan Beiermeister): Trae confidently nominates himself onto trial against Moxie, insisting Moxie is mafia ('Put me on trial, please. This is absurd. I'm not mafia')."
+  - "FINAL TRIAL (Trae vs Moxie): Trae argues survival proves Moxie is mafia ('the mafia can't kill themselves'); Moxie gives his 50%-self-save defense and is telling the truth. The table votes out MOXIE — the real angel. Mafia reach parity. Solana: 'Moxy was kicked into a vat of piranhas AND THE MAFIA WINS.' Table erupts; praise for the 'masterful' mafia play."
+  - "Reconstructed roles: Mafia = Josie (self-revealed), Trae (surviving mastermind, strongly implied — deduced by Sam, praised as 'masterful'), plus a third surviving mafia (by elimination most likely Tim, who survived to the win — inference, not stated). Angel = Moxie (genuine, wrongly executed). Sheriff never clearly surfaced (suspected killed early). Town victims: Dylan, Palmer, Sam, Ryan Petersen, Liv, Cyan, Bryan, Ryan Beiermeister."
+
+solana_hosting:
+  - "I want to get it going. Thank you. I'm now in charge. I'm the narrator. Very excited to play another game of Mafia tonight."
+  - "Let's go kill some people. Come on."
+  - "Mafia is a game of deception and figuring out who is deceiving you. Let the games begin. Everybody go to sleep."
+  - "Dylan was found in his basement riddled with bullets. Who did it?"
+  - "From the founder of Signal, you sure don't seem to care about privacy." (to Moxie, who wanted votes made public)
+  - "Time. Time. Time. No, this is not deliberation. This is a trial. Palmer, you're up."
+  - "Palmer's killed in the town by a stoning, in the tradition of Shirley Jackson's The Lottery. You're dead."
+  - "The various pieces of Ryan Peterson were found in five separate shipping containers."
+  - "Sam was drawn and quartered by the town. Not a super-intelligent AI, that's a win in my book."
+  - "Sadly, Ryan Johnson did in fact die."
+  - "Moxy is dead. Moxy was kicked into a vat of piranhas AND THE MAFIA WINS."
+  - "I'm in charge. You are going to get 15 seconds, can't be interrupted. Did you do it or not?" (overruling Moxie's 'you're micromanaging me')
+
+cast:
+  altman:
+    confident_quotes:
+      - "I'm a townsperson. What I was going to say is it was interesting that Moxie would take the risk of saying that a novice player clearly wants some special role. But to say 'I think mafia.'"
+      - "Yeah, definitive statements like that feels very mafia, right?"
+      - "If Moxie was right and it was Josie, then the mafia would want to kill the person that was onto them — which means it was either Ryan or Moxie who the mafia just attempted to kill."
+      - "There's two different game-theory versions of this. On the one hand the mafia didn't try to kill Moxi, which means either they were playing a next-level thing where killing him would confirm he was the angel."
+      - "If I get killed, I'd be heavily suspicious of Ryan B."
+      - "I am getting targeted because of these two. I don't think Cyan is probably a mafia either, but I think we're going to kill a townsperson here either way."
+      - "Actually, now I think Cyan is probably mafia. That just hit me as I was walking out. Possibly Trey?"
+    style_notes: "The table's analyst. Reasons in explicit game-theory branches ('two versions of this'), reads meta-signals (certainty, who reacted, voting patterns) rather than vibes. Calm, structured, slightly professorial. Famously flagged certain/definitive speech as mafia-like — and was right about the mafia (Cyan/Trae) even as he was wrongly executed as town."
+    interactions: "Mutual accusation trade with Ryan Beiermeister ('if I get killed, suspect you'). Persistent accuser of Moxie on the certainty tell. Voted out Day 3; nailed the real mafia on his way out, prompting Solana's 'not a super-intelligent AI' line."
+  palmer:
+    confident_quotes:
+      - "Mike, this seems kind of discriminatory against Second Amendment rights enthusiasts. You're saying just because they have guns, they're a criminal element?" (moderate confidence)
+      - "If that information point is accurate, then almost all of the prospecting around me being mafia is basically irrelevant... it'd be really dumb to kill me on a completely spurious nomination based on almost nothing. People say he's too quiet — also he's talking too much."
+      - "It was total [bull]. We agree." (reacting after his town execution)
+    style_notes: "The joker / wild card. Leans into bits (gun-rights riff on the rules) and gets read as a chaos agent, which makes him an early target. On the stand he turns lucid and logical, exposing how thin the case against him is. Becomes the table's example of being killed for being a 'wild card,' not for evidence."
+    interactions: "Nominated as the 'wild card, get him out.' On trial with Moxie; voted out Night 2 as an innocent townsperson. His death triggered the 'The Lottery' literary detour."
+  bryan:
+    confident_quotes:
+      - "I've got a shield. I've got a shield of power. Don't die."
+      - "Get information. Ask questions that get answers from people that give us signal in particular ways. As an example, Cyan, you haven't said anything yet."
+      - "That makes so much sense. I got just enough votes from the mafia because my accusations were pointed — I said Moxie was not, Trey was not. I think Tim and Cyan are the most sus. It makes no sense why I'd be mafia."
+    style_notes: "Earnest strategist who frames his play as an information-extraction engine — ask sharp questions, watch for signal. Leans into his own brand (the 'Don't Die / can't die' shield). More methodical than funny; the humor around him is mostly at his expense."
+    interactions: "Anchor of the running gag 'whatever Bryan says we should go with because he can't die' (line delivered by Trae; Bryan: 'thank you, Trey'). Repeatedly the table's immortal mascot until he is finally killed Night 5 ('Ryan Johnson did in fact die')."
+  moxie:
+    confident_quotes:
+      - "Isn't that a huge part of it — seeing collusion and who agrees with who? Seeing who agrees with who and what the alliances are."
+      - "What do you mean accused first? You just accused me in the diary. Why are you micromanaging me?"
+      - "Okay, I am the angel. Last night I saved Ryan. And nobody died, which means Ryan is for sure not mafia."
+      - "My understanding of the rules is you just can't save the same person twice in a row, including yourself. So it's not clear to the mafia whether I can save myself on any given night — and I'm highly incentivized to save myself."
+      - "I've saved myself twice and you once."
+      - "I revealed I was an angel very early in the game, and not a single other person here was like 'actually, I am an angel.'"
+      - "I think it's you and Cyan."
+      - "It's not me. I am the angel. I revealed myself on the second round... there's at least a 50% probability that if they choose me, I've saved myself that night — and they also get to say every day, 'Why is Moxy still alive, god damn it? It's so suspicious.'"
+      - "We can win this right now. I am for sure absolutely not the mafia."
+    style_notes: "Speaks with total, structured certainty — the exact trait Sam labels 'very mafia.' Revealed as the angel unusually early (round 2) and defended the claim with airtight probabilistic logic for the rest of the game. The cruel irony: he was the genuine angel and his very competence got him executed, handing the mafia the win. A clear conversation-steerer."
+    interactions: "Solana's Signal/privacy zinger lands on him. Accused on the certainty tell by Sam, hounded throughout by Cyan ('the whole angel thing doesn't make sense'), and finally out-argued by Trae in the closing duel despite telling the truth."
+  trae:
+    confident_quotes:
+      - "Well, the other thing is whatever Bryan says we should go with — because he can't die."
+      - "Yeah, yeah. We'll see who they ultimately vote for."
+      - "Townsperson. I've actually never been mafia. Can you believe that? In like a hundred games of mafia."
+      - "I've been outing all the people I think are mafia that we've been killing. I've been on your side every single game."
+      - "My best guess — I'm pretty suspicious of Cyan. I think Cyan was probably mafia. Sam maybe was mafia."
+      - "I put myself on the list because I am that convinced that Moxy is mafia. Put me on trial, please. This is absurd. I'm not mafia."
+      - "Guess who else can save themselves other than the angel? The mafia. The mafia can't kill themselves."
+      - "I don't think I have to fill any more time than Moxy just did in his crazy defense."
+    style_notes: "The smooth operator and likely surviving mafia mastermind. Builds trust by 'helping' the town hunt mafia and steering suspicion onto dead townspeople (Cyan, Sam). His masterstroke: volunteering himself onto the final trial and out-talking the real angel, convincing the table to execute Moxie. The 'I've never been mafia' line is the ironic tell."
+    interactions: "Delivered the can't-die gag about Bryan. Suspected by Sam at the end ('possibly Trey'). Final duel vs Moxie — he wins it, and the table praises the play as 'masterful... an excellent mafia move.'"
+  dylan:
+    confident_quotes: []
+    style_notes: "Killed Night 1 with essentially no spoken lines. Reputed to be very good at Mafia, which is offered as the reason the mafia removed him first. Pre-game he reportedly tried to pass notes ('he literally wrote me a note that said We can pass notes')."
+    interactions: "First victim. His death is read as a strategic mafia move against a strong player."
+  liv:
+    confident_quotes:
+      - "I played since I was 18, and people are very good liars. You win the game, you played well. There's no ethics." (cold open, moderate confidence)
+    style_notes: "Framed as the technical favorite — former professional poker player, 'odds on favorite,' a high-stakes read-people-and-lies operator. Talks about the game in cold strategic/EV terms."
+    interactions: "Hyped as the one to beat in the open. Killed Night 4 ('burning man wedding' joke). Had voted Cyan before dying, which others cite as a read."
+  tim:
+    confident_quotes: []
+    style_notes: "The quiet one — repeatedly flagged as 'too quiet' and named among the prime suspects (Bryan: 'Tim and Cyan are the most sus'). Wait But Why writer; plausibly the third surviving mafia who rode silence to the win (inference, not confirmed on tape)."
+    interactions: "Recurring target of 'the quietest people are you guys' callouts; floated as a suspect by multiple players; present in the final four when the mafia won."
+  cyan:
+    confident_quotes:
+      - "I'm listening. I'm observing."
+      - "I'm just, you know, a villager and I am learning, relearning this game."
+      - "I like observing people... I am default shy. Trey can speak to this, we work together. I speak when it's important. Had I been the sheriff, I would have spoken up. But I'm just a villager — I run a little bakery down the street."
+      - "Again, I am not super verbal, and I still think it's Moxie, because the whole angel thing doesn't make a whole lot of sense."
+    style_notes: "Deliberately low-key — downplays with 'haven't played in a long time,' 'default shy,' 'I run a little bakery.' That very quietness reads as guilt to the table, and she becomes a perennial suspect. But she was genuinely town, executed by mistake. Persistently fingered Moxie."
+    interactions: "References working with Trae. Suspected by Sam (on his way out), Trae, and Bryan. Executed Night 4 (cement boots) as an innocent townsperson, which kept the game alive."
+  ryan_petersen:
+    confident_quotes: []
+    style_notes: "Flexport founder; minimal confidently-attributable dialogue. Mostly remembered for his themed death."
+    interactions: "Killed Night 3 — Solana's 'five separate shipping containers' gag at his expense."
+  josie:
+    confident_quotes:
+      - "I'm going for the unhinged, crazy [shit] tonight." (cold open, moderate confidence)
+      - "The role I have is to be a little unhinged."
+      - "Why me?"
+      - "I'm just saying — do I look guilty? I think the person who chose me did it just because I look so crazy."
+      - "I think it's Ryan. Oh, cuz I was mafia." (reveal on elimination)
+    style_notes: "Plays up a chaotic, 'unhinged/crazy' persona and even uses 'I just look crazy' as her defense. Was actually mafia the whole time, hiding behind the wild image, and got read out early."
+    interactions: "Accused by Moxie (the card-glance/'heard movement' observation). On trial with Ryan Beiermeister; voted out unanimously Day 1, revealing she was mafia."
+  beiermeister:
+    confident_quotes:
+      - "I am obviously talking a lot of strategy. If I were mafia, I'd probably be a little more subtle and hiding. I'm 100% a town. If you get rid of me, you get rid of a high-information-gathering player who really wants to win."
+      - "I think Sam's going after me."
+      - "If I get killed, I'd be highly suspicious of Sam A."
+      - "Sam's been coming after me. You know that I'm a villager — and you saved me."
+      - "I am 100% town. I'm choosing to believe your story because you spoke of confidence about me. Sam's been coming for me."
+    style_notes: "Loud, strategy-forward defender — repeatedly insists she is '100% town' and frames herself as a high-value information gatherer the town shouldn't waste. Anchors her credibility to having been saved by the angel."
+    interactions: "Running accusation trade with Sam. Saved by angel Moxie on Night 2 (the 'quiet night'), which becomes a recurring proof-point she leans on; allied with Moxie into the final four."
+
+running_gags:
+  - "Bryan Johnson can't die / 'Don't Die': 'whatever Bryan says we should go with because he can't die' and 'I've got a shield of power' — paid off when Solana finally announces 'Sadly, Ryan Johnson did in fact die.'"
+  - "Second Amendment / townsperson gun-rights riff on the rules: 'discriminatory against Second Amendment rights enthusiasts' and 'we wouldn't have a mafia problem if the townspeople had guns.'"
+  - "Signal-founder privacy irony aimed at Moxie: 'From the founder of Signal, you sure don't seem to care about privacy' (when he wanted votes made public to spot collusion)."
+  - "Solana's themed executions tailored to each victim's identity: Dylan in his basement, Ryan Petersen in five shipping containers (Flexport), Palmer by 'The Lottery' stoning, Liv at a 'burning man wedding,' Cyan in cement boots, Sam drawn-and-quartered, Moxie into a vat of piranhas."
+  - "'Certainty = mafia': anyone speaking too definitively gets accused of being mafia — Sam pioneers it against Moxie ('definitive statements like that feels very mafia')."
+  - "The town drunk: 'I've just been drinking and I couldn't even remember what anything was' → closing line 'I'm the town drunk. I'm just going to keep drinking.'"
+  - "'The Lottery' / old-person literacy fight: 'Is that like an old person thing?' vs 'I thought everyone in America had read The Lottery... the smartest one at this table understood the reference.'"
+
+notable_exchanges:
+  - "Rules → Palmer's bit: Solana lays out that jacks are the mafia; Palmer (mod. conf.): 'Mike, this seems kind of discriminatory against Second Amendment rights enthusiasts.' Follow-up: 'We wouldn't have a mafia problem if the townspeople had guns.'"
+  - "Can't-die gag: Trae — 'whatever Bryan says we should go with because he can't die.' Bryan — 'Yeah, thank you, Trey. I've got a shield of power.' / 'Don't die.'"
+  - "Privacy zinger: Moxie — 'isn't that a huge part of it, seeing who agrees with who and what the alliances are?' Solana — 'From the founder of Signal, you sure don't seem to care about privacy.'"
+  - "Sam vs Beiermeister: Sam — 'If I get killed, I'd be heavily suspicious of Ryan B.' Beiermeister — 'I think Sam's going after me... if I get killed, I'd be highly suspicious of Sam A.'"
+  - "Moxie's angel reveal on trial: Moxie — 'I am the angel. Last night I saved Ryan, and nobody died, which means Ryan is for sure not mafia... if the sheriff is still alive—' Solana — 'Yeah, well, sheriff's gone. Sorry, bro. Time. This is not deliberation, this is a trial.'"
+  - "Sam's deduction at death: Sam — 'Now I think Cyan is probably mafia. That just hit me as I was walking out. Possibly Trey?' Solana — 'Sam was drawn and quartered by the town. Not a super-intelligent AI, that's a win in my book.'"
+  - "Cyan's cover story: 'I am default shy. Trey can speak to this, we work together. I speak when it's important... but I'm just a villager. I run a little bakery down the street.'"
+  - "Josie's reveal: '[my bet is] I think it's Ryan. Oh, cuz I was mafia.'"
+  - "Final duel: Trae — 'Guess who else can save themselves other than the angel? The mafia. The mafia can't kill themselves.' Moxie — 'I am the angel... there's at least a 50% probability that if they choose me, I've saved myself that night — and they get to say every day, Why is Moxy still alive, god damn it?' Town votes out Moxie. Solana — 'Moxy was kicked into a vat of piranhas AND THE MAFIA WINS.'"
+  - "Post-game praise: 'This is an excellent mafia move. He is masterful. If I was an innocent villager and somebody just said I know you're mafia, I would lose my [mind]' — the table conceding they were outplayed into killing their own angel."

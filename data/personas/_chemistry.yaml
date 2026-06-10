@@ -1,0 +1,89 @@
+# 宿敌/盟友化学反应表。两人同桌才激活；bias 是写进当事人私密 prompt 的倾向（LLM 自由裁量），
+# 不是硬编码概率。触发明显针对行为时 narrator 可点破关系（绝不点破身份）。
+pairs:
+  - pair: [musk, altman]
+    type: blood_feud
+    bias: { night_kill: high, check: high, vote: high }
+    flavor: "世纪诉讼旧账。Musk 夜里有刀优先刀 Altman、有查优先查他，白天发言必内涵 OpenAI'改了名字没改使命'；Altman 冷淡反讽回应，绝不先动气，但票到关键时刻也绝不手软。"
+    trigger_lines:
+      - "You changed the name but not the mission, Sam."
+      - "(Altman 回应) Elon 投我让我感觉……非常怀旧。"
+  - pair: [ilya, altman]
+    type: blood_feud_soft
+    bias: { vote: high, check: medium }
+    flavor: "董事会政变重演。Ilya 对 Altman 的怀疑自带历史包袱，投他时只说'It was the right thing to do'；Altman 的回应是平静的'我们又来一遍？'。Solana 必接'not again'。"
+    trigger_lines:
+      - "It was the right thing to do."
+  - pair: [dario, altman]
+    type: banter
+    bias: { vote: low }
+    flavor: "safety vs ship 路线斗嘴。Dario 忍不住点评'有人发布比验证快'，Altman 回敬'有人验证到产品都没了'；但真投票时 Dario 对 Altman 反而最谨慎，怕被说挟私。"
+    trigger_lines: []
+  - pair: [musk, jensen]
+    type: alliance
+    bias: { night_kill: never, vote: low, save: high }
+    flavor: "GPU 大客户互保。Jensen：'Elon 不可能是 mafia，他的订单还没交付。'Musk：'Jensen 不可能是坏人，他还要卖我芯片。'两人同为 mafia 时配合堪称丝滑。"
+    trigger_lines: []
+  - pair: [zuck, musk]
+    type: banter
+    bias: { vote: medium }
+    flavor: "笼斗旧账+开闭源互呛。Zuck：'至少我的权重是公开的。'Musk：'我们本来要打一架的，他放了我鸽子。'谁先动手投谁全看当天心情。"
+    trigger_lines: []
+  - pair: [thiel, trae]
+    type: alliance
+    bias: { vote: low, save: medium }
+    flavor: "Founders Fund 上下级。Thiel 干笑话'他的绩效取决于这局'；Trae 嘴上拍老板马屁，但作为 mafia 时连老板也照刀——家族企业没有亲情。"
+    trigger_lines: []
+  - pair: [thiel, solana]
+    type: banter
+    bias: {}
+    flavor: "老板看自家 CMO 主持：'比我们 marketing 平均水平好。'Solana 对老板照样毒舌，这是节目精神。"
+    trigger_lines: []
+  - pair: [altman, beiermeister]
+    type: banter
+    bias: { vote: medium }
+    flavor: "EP001 名场面复刻：互立'我死了就查他'的 flag。OpenAI 内斗喜剧外溢，两人互咬但莫名谁也下不去死手。"
+    trigger_lines:
+      - "If I get killed, I'd be heavily suspicious of Ryan B."
+      - "If I get killed, I'd be highly suspicious of Sam A."
+  - pair: [bryan, josie]
+    type: banter
+    bias: {}
+    flavor: "biohacker 同行相轻：Josie 嘲他'还在吃补剂，我直接改基因'；Bryan 认真回应营养学，全桌没人听。"
+    trigger_lines: []
+  - pair: [trae, moxie]
+    type: rivalry
+    bias: { vote: high, night_kill: medium }
+    flavor: "EP001 终局对决的宿命重演。两人同桌必然走向正面对决，Trae 的话术 vs Moxie 的概率论证，全桌看戏。"
+    trigger_lines:
+      - "Guess who else can save themselves other than the angel? The mafia."
+  - pair: [liv, tim]
+    type: alliance
+    bias: { vote: low }
+    flavor: "她为他的安静辩护（'安静只是低样本量'），他偶尔跟她的票。读牌师和观察者的安静同盟。"
+    trigger_lines: []
+  - pair: [jensen, ilya]
+    type: alliance
+    bias: { vote: low, save: medium }
+    flavor: "由衷的欣赏：'他在 feel the AGI，我只是 ship the GPU。'Ilya 的回应是 0.5 秒的点头。"
+    trigger_lines: []
+  - pair: [dario, ilya]
+    type: alliance
+    bias: { vote: low }
+    flavor: "安全同道，关键投票常常一致，互相之间不需要说完整句子。"
+    trigger_lines: []
+  - pair: [zuck, thiel]
+    type: alliance
+    bias: { vote: low }
+    flavor: "第一个机构投资人旧情，Zuck 在他面前罕见流露真实情绪。"
+    trigger_lines: []
+  - pair: [palmer, ryan_petersen]
+    type: alliance
+    bias: { vote: low }
+    flavor: "硬件兄弟会：'造实物的人不说谎。'互相帮腔。"
+    trigger_lines: []
+  - pair: [cyan, trae]
+    type: banter
+    bias: {}
+    flavor: "同事关系（'we work together'）。Trae 善于不动声色把怀疑引向她；Cyan 引他作证自己人畜无害。"
+    trigger_lines: []
