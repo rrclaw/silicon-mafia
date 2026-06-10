@@ -41,6 +41,7 @@
       </label>
       <div class="preset-row">
         <button id="bt-ep001" class="px-btn">EP001 原班</button>
+        <button id="bt-allstar" class="px-btn">全明星局</button>
         <button id="bt-random" class="px-btn">随机组局</button>
         <button id="bt-clear" class="px-btn ghost-btn">清空</button>
       </div>
@@ -90,6 +91,25 @@
       <div id="go-roles"></div>
       <button id="bt-again" class="px-btn primary">再来一局</button>
     </div>
+  </div>
+</div>
+
+<!-- 人物档案弹窗 -->
+<div id="bio-modal" class="overlay hidden">
+  <div class="overlay-card bio-card">
+    <button id="bio-close" class="px-btn ghost-btn bio-close">✕</button>
+    <div class="bio-head">
+      <img id="bio-img" src="" alt="">
+      <div>
+        <div id="bio-name" class="bio-name"></div>
+        <div id="bio-nick" class="bio-nick"></div>
+        <div id="bio-company" class="bio-company"></div>
+      </div>
+    </div>
+    <div id="bio-text" class="bio-text"></div>
+    <div class="bio-style-label">🎭 牌桌画风</div>
+    <div id="bio-style" class="bio-style"></div>
+    <button id="bio-toggle" class="px-btn primary"></button>
   </div>
 </div>
 

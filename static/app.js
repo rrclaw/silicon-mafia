@@ -35,14 +35,22 @@ async function initLobby() {
     card.dataset.id = c.id;
     card.innerHTML = `
       <span class="csrc">${c.source === "ep001_transcript" ? "EP001" : "GUEST"}</span>
+      <button class="cinfo" title="人物档案">?</button>
       <img src="/static/sprites/${c.id}_idle.png" alt="${c.name_en}">
       <div class="cname">${c.name_en}</div>
       <div class="cnick">${c.nickname_zh || ""}</div>`;
     card.title = c.tagline_zh || "";
     card.onclick = () => toggleCast(c.id);
+    card.querySelector(".cinfo").onclick = (e) => { e.stopPropagation(); openBio(c.id); };
     grid.appendChild(card);
   }
   $("bt-ep001").onclick = () => { selected = new Set(pickEleven(META.ep001)); renderSel(); };
+  $("bt-allstar").onclick = () => {
+    const stars = ["musk", "altman", "zuck", "gates", "bezos", "cook", "pichai",
+                   "jensen", "dario", "ilya", "thiel"];
+    selected = new Set(stars.filter(id => META.roster.some(c => c.id === id)).slice(0, 11));
+    renderSel();
+  };
   $("bt-random").onclick = () => {
     const ids = META.roster.map(c => c.id).sort(() => Math.random() - 0.5);
     selected = new Set(ids.slice(0, 11)); renderSel();
@@ -69,6 +77,26 @@ function pickEleven(ids) {
   out.splice(Math.floor(Math.random() * out.length), 1);
   return out;
 }
+
+function openBio(id) {
+  const c = META.roster.find(x => x.id === id);
+  if (!c) return;
+  $("bio-img").src = `/static/sprites/${id}_idle.png`;
+  $("bio-name").textContent = c.name_zh || c.name_en;
+  $("bio-nick").textContent = `“${c.nickname_zh || c.nickname_en}” · ${c.source === "ep001_transcript" ? "EP001 原班" : "特邀嘉宾"}`;
+  $("bio-company").textContent = c.company_zh || "";
+  $("bio-text").textContent = (c.bio_zh || "").trim();
+  $("bio-style").textContent = c.tagline_zh || "";
+  const t = $("bio-toggle");
+  const refresh = () => {
+    t.textContent = selected.has(id) ? "✓ 已入座 · 点击移出" : "+ 请他入座";
+  };
+  refresh();
+  t.onclick = () => { toggleCast(id); refresh(); };
+  $("bio-modal").classList.remove("hidden");
+}
+$("bio-close").onclick = () => $("bio-modal").classList.add("hidden");
+$("bio-modal").onclick = (e) => { if (e.target === $("bio-modal")) $("bio-modal").classList.add("hidden"); };
 
 function toggleCast(id) {
   if (selected.has(id)) selected.delete(id);

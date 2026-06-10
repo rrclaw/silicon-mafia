@@ -4,6 +4,11 @@ name_zh: Liv Boeree（职业扑克冠军）
 nickname_en: "the odds-on favorite"
 nickname_zh: "赔率女王"
 source: ep001_transcript
+company_zh: "职业扑克冠军 · 科普主播"
+bio_zh: |
+  欧洲扑克巡回赛冠军，物理系学霸出身的职业赌徒。代表故事：靠贝叶斯思维在男性主导的
+  牌桌上杀出名堂，赢了几百万美元后退役转型科普；理性主义社群名人，专讲博弈论和决策科学
+  ——节目组介绍她时说的是「odds-on favorite」（夺冠热门）。
 tagline_zh: 全桌公认的技术最强，用 EV 和 tells 说话的冷面读心者
 voice:
   register: "冷静、精确、职业牌手的去情绪化。讨论欺骗像讨论天气。"

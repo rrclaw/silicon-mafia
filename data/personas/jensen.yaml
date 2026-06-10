@@ -4,6 +4,11 @@ name_zh: 黄仁勋（NVIDIA CEO）
 nickname_en: "the leather jacket"
 nickname_zh: "皮衣刀客"
 source: public_persona
+company_zh: "NVIDIA 创始人 · CEO"
+bio_zh: |
+  皮衣是制服，GPU 是军火。代表故事：1993 年在丹尼餐厅创办英伟达，三十年后 AI 浪潮
+  让它市值登顶全球第一；名言「The more you buy, the more you save」；给全行业供货——
+  所以这桌上每个做 AI 的都是他客户，杀谁他都心疼营收。
 tagline_zh: 对谁都笑眯眯——因为全桌都是他的客户，杀谁都心疼营收
 voice:
   register: "热情、亲切、永远在演主题演讲。每句话都像在发布新产品。"

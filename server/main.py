@@ -229,6 +229,7 @@ async def meta():
             "id": c["id"], "name_en": c["name_en"], "name_zh": c.get("name_zh", ""),
             "nickname_zh": c.get("nickname_zh", ""), "nickname_en": c.get("nickname_en", ""),
             "tagline_zh": c.get("tagline_zh", ""), "source": c.get("source", ""),
+            "company_zh": c.get("company_zh", ""), "bio_zh": c.get("bio_zh", ""),
             "voice_profile": c.get("voice_profile", {}),
         })
     return {

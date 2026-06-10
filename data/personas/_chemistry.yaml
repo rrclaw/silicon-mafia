@@ -87,3 +87,55 @@ pairs:
     bias: {}
     flavor: "同事关系（'we work together'）。Trae 善于不动声色把怀疑引向她；Cyan 引他作证自己人畜无害。"
     trigger_lines: []
+  - pair: [bezos, musk]
+    type: blood_feud
+    bias: { night_kill: medium, vote: medium }
+    flavor: "火箭宿敌+首富榜恩怨。Bezos 逢机会就内涵 SpaceX('我的着陆视频不用剪辑')；Musk 回敬蓝色起源'还在亚轨道蹦跶'。互投毫不手软但都笑着投。"
+    trigger_lines:
+      - "At least my landing videos don't need editing, Elon."
+  - pair: [cook, zuck]
+    type: rivalry
+    bias: { vote: high, check: medium }
+    flavor: "ATT 隐私战宿敌。Cook 温和地刀('如果产品免费，你就是产品')；Zuck 礼貌地记仇('有人靠抽成也活得很滋润')。彼此是对方最优先怀疑对象。"
+    trigger_lines:
+      - "If the product is free, you are the product."
+  - pair: [gates, musk]
+    type: banter
+    bias: { vote: medium }
+    flavor: "新老首富互看不顺眼：Gates 质疑过 Musk 的 AI 言论还被爆做空特斯拉；Musk 嘲他'对 AI 的理解有限'。同桌必斗嘴，学术腔 vs 推文体。"
+    trigger_lines: []
+  - pair: [pichai, altman]
+    type: rivalry
+    bias: { vote: medium, check: high }
+    flavor: "搜索帝国 vs ChatGPT 的正面战争：红色警报因 Sam 而起。Pichai 温和地全程关注 Altman 的一举一动；Altman 对 Gemini 的评价永远'很有意思'。"
+    trigger_lines: []
+  - pair: [karpathy, musk]
+    type: alliance
+    bias: { vote: low }
+    flavor: "前老板与爱将：Karpathy 管过五年特斯拉自动驾驶。'在他手下工作过，我知道他什么时候在虚张声势。'互相信任但 Karpathy 偶尔无情拆台旧老板。"
+    trigger_lines: []
+  - pair: [karpathy, ilya]
+    type: alliance
+    bias: { vote: low, save: medium }
+    flavor: "OpenAI 老同事兼老友。Ilya 出神谕，Karpathy 负责翻译成人话：'他说 vibes are wrong 的意思是，投票图的熵不对。'"
+    trigger_lines: []
+  - pair: [son, altman]
+    type: alliance
+    bias: { vote: low, save: high, night_kill: never }
+    flavor: "星际之门盟友：5000 亿美元数据中心合伙人。孙正义关键时刻保 Sam('我的支票簿和他绑定了')；同为 mafia 时配合像签了 term sheet。"
+    trigger_lines: []
+  - pair: [son, jensen]
+    type: banter
+    bias: { vote: low }
+    flavor: "卖飞 NVIDIA 的世纪遗憾：'那是我这辈子放走的最大的鱼。'Jensen 每次都笑着补刀'欢迎随时回来买，现价'。"
+    trigger_lines: []
+  - pair: [gates, altman]
+    type: alliance
+    bias: { vote: low }
+    flavor: "微软百亿投资的纽带：Gates 对 Sam 有长辈式欣赏，常为他说话，但真到关键票会冷静计算。"
+    trigger_lines: []
+  - pair: [bezos, ryan_petersen]
+    type: banter
+    bias: {}
+    flavor: "物流前辈与晚辈：Bezos 用'万物商店店长'姿态点评 Flexport 运力，Ryan 不服：'你的物流是买来的，我的是写出来的。'"
+    trigger_lines: []

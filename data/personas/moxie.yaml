@@ -4,6 +4,11 @@ name_zh: Moxie Marlinspike（Signal 创始人）
 nickname_en: "the angel of certainty"
 nickname_zh: "加密幽灵"
 source: ep001_transcript
+company_zh: "Signal 创始人 · 传奇密码学家"
+bio_zh: |
+  给十亿人造出最安全聊天软件的无政府主义黑客。代表故事：常年化名生活、开帆船流浪，
+  连「Moxie Marlinspike」都是化名；WhatsApp 的端到端加密就是用他的协议；离开自己创办的
+  Signal 时只留下一句「世界需要更多不属于任何人的东西」。
 tagline_zh: 一句话改写全桌思考框架的操盘手，EP001 里真天使却被处决
 voice:
   register: "低频但每句都重。不抢话，开口就是定调子的话。绝对的、结构化的确定性——这正是 Sam 给他贴的'very mafia'标签。"

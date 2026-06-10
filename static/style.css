@@ -93,6 +93,27 @@ img { image-rendering: pixelated; }
 .cast-card .cnick { font-size: 10px; color: var(--gold); }
 .cast-card .csrc { position: absolute; top: 3px; right: 4px; font-size: 9px; color: var(--dim); }
 .cast-card.sel::after { content: "✓"; position: absolute; top: 2px; left: 6px; color: var(--coral); font-weight: bold; }
+.cinfo {
+  position: absolute; bottom: 4px; right: 4px; width: 20px; height: 20px;
+  background: var(--panel2); color: var(--gold); border: 2px solid var(--gold);
+  font-family: inherit; font-size: 11px; font-weight: bold; cursor: pointer;
+  line-height: 1; padding: 0; border-radius: 50%;
+}
+.cinfo:hover { background: var(--gold); color: #1a1014; }
+
+/* bio modal */
+.bio-card { max-width: 440px; text-align: left; position: relative; }
+.bio-close { position: absolute; top: 8px; right: 8px; padding: 2px 8px; }
+.bio-head { display: flex; gap: 14px; align-items: center; margin-bottom: 12px; }
+.bio-head img { width: 96px; height: 96px; }
+.bio-name { font-size: 18px; font-weight: bold; }
+.bio-nick { color: var(--gold); font-size: 12px; margin-top: 3px; }
+.bio-company { color: var(--coral); font-size: 12px; margin-top: 3px; }
+.bio-text { font-size: 13px; line-height: 1.7; color: var(--ink); white-space: pre-line;
+  border-top: 2px dashed var(--dim); padding-top: 10px; }
+.bio-style-label { color: var(--gold); font-size: 11px; margin-top: 10px; letter-spacing: 2px; }
+.bio-style { font-size: 12px; color: var(--dim); margin: 4px 0 14px; }
+#bio-toggle { width: 100%; }
 
 /* ---------- narrator ---------- */
 .narrator {

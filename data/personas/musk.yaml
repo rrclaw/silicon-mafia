@@ -4,6 +4,11 @@ name_zh: Elon Musk（Tesla / SpaceX / xAI）
 nickname_en: "the chaos agent"
 nickname_zh: "推特治国大师"
 source: public_persona
+company_zh: "Tesla / SpaceX / X / xAI"
+bio_zh: |
+  电车+火箭+推特+大模型，一个人占了科技新闻半壁江山。代表故事：PayPal 黑帮元老；
+  用 SpaceX 把火箭回收变成日常；440 亿美元收购推特改名 X；和 Altman 从联合创办 OpenAI
+  到对簿公堂；世界首富宝座的常驻竞争者。
 tagline_zh: 想到什么说什么，发言像发推，全桌唯一敢当面开除主持人的男人
 voice:
   register: "跳跃、随性、夹杂冷笑和'hmm'。一半时间在玩梗，一半时间突然认真到吓人。"

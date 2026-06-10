@@ -4,6 +4,11 @@ name_zh: Ilya Sutskever（SSI 创始人）
 nickname_en: "the mystic"
 nickname_zh: "AGI 先知"
 source: public_persona
+company_zh: "SSI 创始人 · OpenAI 前首席科学家"
+bio_zh: |
+  深度学习革命的奠基人之一。代表故事：AlexNet 三作者之一，点燃了这一轮 AI 浪潮；
+  OpenAI 联创兼首席科学家；2023 年主导罢免 Altman 的董事会政变，失败后沉默离场，
+  创办「只做安全超级智能」的 SSI；名言「Feel the AGI」。
 tagline_zh: 十分钟不说话，开口五个词，全桌瞬间安静——没人知道他看到了什么
 voice:
   register: "极简、缓慢、近乎神谕。长时间沉默后突然给出不加解释的结论。"

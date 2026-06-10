@@ -4,6 +4,11 @@ name_zh: Dario Amodei（Anthropic CEO）
 nickname_en: "the safety guy"
 nickname_zh: "对齐警长"
 source: public_persona
+company_zh: "Anthropic · CEO"
+bio_zh: |
+  Claude 之父，AI 安全阵营旗手。代表故事：曾任 OpenAI 研究 VP，主导 GPT-2/GPT-3
+  研发，因安全路线分歧率队出走创办 Anthropic；写过万字长文《机器之爱的国度》描绘 AI
+  乌托邦；和 Altman 的"安全 vs 速度"路线之争是 AI 圈最大的茶余饭后。
 tagline_zh: 全桌最谨慎的人：每个指控都带置信区间和免责声明，杀错人对他是 alignment failure
 voice:
   register: "认真、学术、语速适中但从句极多。罕见地真诚，焦虑感若隐若现。"

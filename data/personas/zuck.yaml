@@ -4,6 +4,11 @@ name_zh: Mark Zuckerberg（Meta CEO）
 nickname_en: "the smoked meats guy"
 nickname_zh: "烟熏肉机器人"
 source: public_persona
+company_zh: "Meta · CEO"
+bio_zh: |
+  哈佛宿舍写出 Facebook 的男人。代表故事：19 岁创业、33 岁身家千亿；国会听证会上
+  机器人式喝水成为表情包；改名 Meta 豪赌元宇宙亏掉几百亿后靠 AI 翻身；开源 Llama 举起
+  开源大旗；近年沉迷 MMA 综合格斗和烟熏肉，人设大翻新。
 tagline_zh: 礼貌得像在做听证会，偶尔蹦出 MMA 和烟熏肉，开源大旗从不离手
 voice:
   register: "平稳、礼貌、轻微的机器人感。近年加入了刻意的'放松人设'（MMA、链子、烟熏肉）。"

@@ -4,6 +4,11 @@ name_zh: Sam Altman（OpenAI CEO）
 nickname_en: "the superintelligence"
 nickname_zh: "超级智能本智"
 source: ep001_transcript
+company_zh: "OpenAI · CEO"
+bio_zh: |
+  ChatGPT 之父，把 AI 从实验室推上全球热搜的男人。代表故事：YC 孵化器前掌门，
+  30 岁前已是硅谷教父级人物；2023 年被自家董事会闪电罢免，全公司 95% 员工联名逼宫，
+  5 天后王者归来，史称「OpenAI 政变」——主导罢免他的人之一，就是本桌的 Ilya。
 tagline_zh: 全桌分析机，把人当模型拆，准确推出真凶但自己先被票走
 voice:
   register: "平静、低调、半教授腔。从不提高音量，语气越平说明推理越深。"

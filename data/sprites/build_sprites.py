@@ -14,7 +14,7 @@ OUT = Path(__file__).resolve().parent.parent.parent / "static" / "sprites"
 
 # palette helpers
 SKIN = {"fair": (240, 200, 170), "tan": (220, 180, 140), "glow": (250, 215, 185),
-        "pale": (235, 210, 190), "med": (200, 160, 125)}
+        "pale": (235, 210, 190), "med": (200, 160, 125), "brown": (170, 125, 90)}
 HAIR = {"brown": (90, 60, 40), "dark": (45, 35, 30), "black": (25, 22, 20),
         "blond": (215, 180, 110), "grey": (150, 150, 150), "pink": (235, 90, 180),
         "silver": (190, 190, 195)}
@@ -49,6 +49,16 @@ CHARS = {
                      chain=True),
     "solana":   dict(skin="tan", hair="dark", style="bandana", shirt=(90, 30, 35),
                      bandana=(160, 40, 45)),
+    "cook":     dict(skin="fair", hair="silver", style="short", shirt=(40, 55, 95),
+                     glasses=True),
+    "bezos":    dict(skin="tan", hair="dark", style="bald", shirt=(45, 45, 50)),
+    "gates":    dict(skin="fair", hair="grey", style="side", shirt=(165, 60, 130),
+                     glasses=True),
+    "pichai":   dict(skin="brown", hair="grey", style="short", shirt=(105, 105, 115),
+                     glasses=True, beard=True),
+    "karpathy": dict(skin="fair", hair="dark", style="short", shirt=(45, 120, 130)),
+    "son":      dict(skin="med", hair="grey", style="balding", shirt=(50, 48, 60),
+                     pattern="suit", glasses=True),
 }
 
 OUTLINE = (30, 25, 28)
@@ -94,6 +104,8 @@ def base_grid(cfg) -> list[list]:
                 g[y][13] = cfg["streak"]
     elif st == "balding":
         rect(6, 3, 7, 4, hair); rect(12, 3, 13, 4, hair)
+    elif st == "bald":
+        pass
     elif st == "beanie":
         rect(5, 2, 14, 6, cfg.get("beanie", hair))
     elif st == "bandana":
